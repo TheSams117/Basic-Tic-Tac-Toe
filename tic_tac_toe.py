@@ -18,13 +18,11 @@ class TicTacToeGame():
     if(not self.board.count(None) == 0):
       for i, cell in enumerate(self.board):        
         if(cell == _PLAYER_SYMBOL):       
-          if (i == 0 or i  == 1 or i  == 2):      
-            #VERTICALES    
+          if (i == 0 or i  == 1 or i  == 2):         
             if (self.board[i] == _PLAYER_SYMBOL and self.board[i + 3] == _PLAYER_SYMBOL and self.board[i + 6] == _PLAYER_SYMBOL):
               self.winner = _PLAYER
               self.is_game_over = True
               break
-            #DIAGONALES
             elif(i == 0):
               if (self.board[i] == _PLAYER_SYMBOL and self.board[i + 4] == _PLAYER_SYMBOL and self.board[i + 8] == _PLAYER_SYMBOL):
                 self.winner = _PLAYER
@@ -35,20 +33,17 @@ class TicTacToeGame():
                 self.winner = _PLAYER
                 self.is_game_over = True
                 break
-          #HORIZONTALES
           if (i == 0 or i  == 3 or i  == 6): 
             if (self.board[i] == _PLAYER_SYMBOL and self.board[i + 1] == _PLAYER_SYMBOL and self.board[i + 2] == _PLAYER_SYMBOL):
                 self.winner = _PLAYER
                 self.is_game_over = True
                 break
         elif(cell == _MACHINE_SYMBOL):
-          if (i == 0 or i  == 1 or i  == 2):      
-            #VERTICALES    
+          if (i == 0 or i  == 1 or i  == 2):        
             if (self.board[i] == _MACHINE_SYMBOL and self.board[i + 3] == _MACHINE_SYMBOL and self.board[i + 6] == _MACHINE_SYMBOL):
               self.winner = _MACHINE
               self.is_game_over = True
               break
-            #DIAGONALES
             elif(i == 0):
               if (self.board[i] == _MACHINE_SYMBOL and self.board[i + 4] == _MACHINE_SYMBOL and self.board[i + 8] == _MACHINE_SYMBOL):
                 self.winner = _MACHINE
@@ -59,13 +54,11 @@ class TicTacToeGame():
                 self.winner = _MACHINE
                 self.is_game_over = True
                 break
-          #HORIZONTALES
           if (i == 0 or i  == 3 or i  == 6): 
             if (self.board[i] == _MACHINE_SYMBOL and self.board[i + 1] == _MACHINE_SYMBOL and self.board[i + 2] == _MACHINE_SYMBOL):
                 self.winner = _MACHINE
                 self.is_game_over = True
                 break
-    #if self.board.count(None) == 0:
     else:
       self.winner = "Draw" 
       self.is_game_over = True 
@@ -105,11 +98,11 @@ class TicTacToeGame():
     
 
   def machine_turn(self): # TODO: Finish this function by making the machine choose a random cell (use random module)
-    j = 0
-    while(self.board[j] is not None):
-      j = random.randint(0, 8)
+    i = 0
+    while(self.board[i] is not None):
+      i = random.randint(0, 8)
 
-    self.board[j] = _MACHINE_SYMBOL
+    self.board[i] = _MACHINE_SYMBOL
     self.is_over()
       
     
